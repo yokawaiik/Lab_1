@@ -64,7 +64,10 @@ public class CalcActivity extends AppCompatActivity {
     };
 
     // Интерфейс слушателя изменений состояния SeekBar
-    private final OnSeekBarChangeListener sbListener = newOnSeekBarChangeListener(){
+    private final OnSeekBarChangeListener sbListener = newOnSeekBarChangeListener()
+
+    {
+
         // Обновление процента чаевых и итоговой суммы
         @Override
         public void onProgressChanged (SeekBarseekBar,int progress, boolean fromUser){
@@ -76,12 +79,13 @@ public class CalcActivity extends AppCompatActivity {
     }
         @Override
         public void onStartTrackingTouch (SeekBar seekBar){
-        }
+    }
         @Override
         public void onStopTrackingTouch (SeekBar seekBar){
-        }
-    };
+    }
+    }
 
+    ;
 
 
 }
