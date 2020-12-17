@@ -57,9 +57,9 @@ public class CalcActivity extends AppCompatActivity {
         public void onProgressChanged (SeekBar seekBar,int progress, boolean fromUser){
             percent = progress / 100.0; // Назначение процента чаевых
             // Вычисление чаевых и общей суммы. Вывод их на экран.
-            tv_percent.setText(Double.toString(percent));
-            tv_tip.setText(Double.toString(tipCalc.calculateTip(amount, percent)));
-            tv_total.setText(Double.toString(tipCalc.calculateTotal(amount, percent)));
+            tv_percent.setText(percentFormat.format(percent));
+            tv_tip.setText(currencyFormat.format(tipCalc.calculateTip(amount,percent)));
+            tv_total.setText(currencyFormat.format(tipCalc.calculateTotal(amount, percent)));
         }
         @Override
         public void onStartTrackingTouch (SeekBar seekBar){
@@ -76,8 +76,8 @@ public class CalcActivity extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             amount = Double.parseDouble(s.toString());
             // Обновление полей с чаевыми и общей суммой
-            tv_tip.setText(Double.toString(tipCalc.calculateTip(amount, percent)));
-            tv_total.setText(Double.toString(tipCalc.calculateTotal(amount, percent)));
+            tv_tip.setText(currencyFormat.format(tipCalc.calculateTip(amount,percent)));
+            tv_total.setText(currencyFormat.format(tipCalc.calculateTotal(amount, percent)));
         }
 
         @Override
