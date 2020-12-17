@@ -63,5 +63,25 @@ public class CalcActivity extends AppCompatActivity {
         }
     };
 
+    // Интерфейс слушателя изменений состояния SeekBar
+    private final OnSeekBarChangeListener sbListener = newOnSeekBarChangeListener(){
+        // Обновление процента чаевых и итоговой суммы
+        @Override
+        public void onProgressChanged (SeekBarseekBar,int progress, boolean fromUser){
+        percent = progress / 100.0; // Назначение процента чаевых
+        // Вычисление чаевых и общей суммы. Вывод их на экран.
+        tv_percent.setText(Double.toString(percent));
+        tv_tip.setText(Double.toString(tipCalc.calculateTip(amount, percent)));
+        tv_total.setText(Double.toString(tipCalc.calculateTotal(amount, percent)));
+    }
+        @Override
+        public void onStartTrackingTouch (SeekBar seekBar){
+        }
+        @Override
+        public void onStopTrackingTouch (SeekBar seekBar){
+        }
+    };
+
+
 
 }
