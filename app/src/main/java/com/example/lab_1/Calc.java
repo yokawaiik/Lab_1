@@ -1,3 +1,5 @@
+package com.example.lab_1;
+
 public class Calc {
     private double billAmount; // Сумма счёта
     private double percent; // Процент чаевых
