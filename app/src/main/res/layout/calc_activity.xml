@@ -14,10 +14,9 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="Input text"
+        android:hint="@string/hint"
         android:inputType="textPersonName|numberDecimal"
         android:selectAllOnFocus="true"
-        android:text="@string/text_EnterAmount"
         android:textSize="@dimen/text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,10 +35,11 @@
 
     <SeekBar
         android:id="@+id/sb_percent"
-        android:layout_width="320dp"
-        android:layout_height="25dp"
+        android:layout_width="294dp"
+        android:layout_height="26dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:progress="@integer/progress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_amount" />
 
@@ -56,7 +56,7 @@
 
     <TextView
         android:id="@+id/tv_total"
-        android:layout_width="320dp"
+        android:layout_width="292dp"
         android:layout_height="26dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -79,8 +79,8 @@
 
     <TextView
         android:id="@+id/tv_tip"
-        android:layout_width="320dp"
-        android:layout_height="25dp"
+        android:layout_width="293dp"
+        android:layout_height="26dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="TextView"

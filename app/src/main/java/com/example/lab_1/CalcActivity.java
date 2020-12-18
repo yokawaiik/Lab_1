@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -36,12 +37,17 @@ public class CalcActivity extends AppCompatActivity {
 
         et_amount = findViewById(R.id.et_amount);
         sb_percent = findViewById(R.id.sb_percent);
+
         tv_percent = findViewById(R.id.tv_percent);
         tv_tip = findViewById(R.id.tv_tip);
         tv_total = findViewById(R.id.tv_total);
         // Для текстовых полей задаём первоначальные значения
         tv_tip.setText("0.0");
         tv_total.setText("0.0");
+
+        // Инициализация начального значения Прогресс бара
+        double startPercent = Double.valueOf(String.valueOf(sb_percent.getProgress())) / 100.0;
+        tv_percent.setText(percentFormat.format(startPercent));
 
         //  Слушатели событий интерфейса
         et_amount.addTextChangedListener(amountTextWatcher);
@@ -75,6 +81,7 @@ public class CalcActivity extends AppCompatActivity {
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             amount = Double.parseDouble(s.toString());
+
             // Обновление полей с чаевыми и общей суммой
             tv_tip.setText(currencyFormat.format(tipCalc.calculateTip(amount,percent)));
             tv_total.setText(currencyFormat.format(tipCalc.calculateTotal(amount, percent)));
